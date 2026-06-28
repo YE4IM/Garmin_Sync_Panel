@@ -1,0 +1,11 @@
+{
+  "garmin": {
+    "email": "your_garmin_email@example.com",
+    "password": "your_garmin_password",
+    "domain": "CN"
+  },
+  "data_dir": "data",
+  "log_dir": "logs",
+  "fit_download_dir": "data/fit_files",
+  "export_dir": "data/exports"
+}

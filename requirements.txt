@@ -1,0 +1,14 @@
+fastapi>=0.100
+uvicorn[standard]>=0.23
+httpx[socks]>=0.24
+python-dotenv>=1.0
+requests>=2.28
+cryptography
+curlify
+fit-tool>=0.1.0
+fitparse>=1.2.0
+garth>=0.5.0
+pydantic
+requests-oauthlib
+pytest>=7.0
+pytest-cov>=4.0

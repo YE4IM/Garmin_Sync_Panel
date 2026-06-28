@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Runtime secrets and generated data
+.env
+.env.*
+!.env.example
+runtime/
+*.log
+*.sqlite
+*.db
+*.fit
+*.tcx
+*.zip
+
+# Uploaded source archive
+garmin-sync.zip
+
+# Imported project private data
+garmin-activity-sync/config.json
+garmin-activity-sync/data/
+garmin-activity-sync/logs/
+garmin-activity-sync/.garth/
+garmin-activity-sync/.garminconnect/
+
+garmin-weight-sync/users.json
+garmin-weight-sync/config/
+garmin-weight-sync/data/
+garmin-weight-sync/.garth/
+garmin-weight-sync/.garminconnect/
+garmin-weight-sync/garmin-fit/
+
+# Imported project caches/builds
+garmin-activity-sync/**/__pycache__/
+garmin-weight-sync/**/__pycache__/
+garmin-weight-sync/dist/
+garmin-weight-sync/build/
+garmin-weight-sync/release/

@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Garmin Sync daily
+
+[Timer]
+OnCalendar=*-*-* 06:30:00
+Persistent=true
+Unit=garmin-sync-daily.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,18 @@
+[Unit]
+Description=Garmin Sync private web service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/garmin-sync
+EnvironmentFile=/opt/garmin-sync/.env
+ExecStart=/opt/garmin-sync/.venv/bin/python -m garmin_sync_service.cli serve
+Restart=on-failure
+RestartSec=5
+User=ubuntu
+Group=ubuntu
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

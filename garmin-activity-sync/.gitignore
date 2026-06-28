@@ -1,0 +1,30 @@
+# 敏感配置文件
+config.json
+
+# 数据目录
+data/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Garmin session
+.garth/
+.garminconnect/
+
+# OS
+.DS_Store
+Thumbs.db

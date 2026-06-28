@@ -1,0 +1,13 @@
+[Unit]
+Description=Garmin Sync daily sync and email report
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/garmin-sync
+EnvironmentFile=/opt/garmin-sync/.env
+ExecStart=/opt/garmin-sync/.venv/bin/python -m garmin_sync_service.cli run-daily
+User=ubuntu
+Group=ubuntu
+UMask=0077
