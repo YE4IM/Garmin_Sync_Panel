@@ -27,12 +27,22 @@
 ├── tests/                      # 当前服务测试
 ├── .env.example                # 配置示例
 ├── LICENSE                     # MIT License
+├── DEPLOYMENT.md               # 新手部署教程
+├── CHANGELOG.md                # 版本记录
 ├── USAGE_RULES.md              # 使用规则、账号风险和数据说明
 └── NOTICE.md                   # 额外说明
 ```
 
+第一次部署建议先看 `DEPLOYMENT.md`，里面按从零开始的顺序写了安装、配置、登录、同步、邮件、AI、开机自启和 nginx。
+
 账号风险、数据存储位置、数据传输路径和第三方服务边界，单独写在
 `USAGE_RULES.md`。部署前建议先看那一份。
+
+## 发布版本和软件包
+
+正式版本会放在 GitHub Releases。每个 Release 会带 GitHub 自动生成的源码压缩包，并在发布说明里写清楚主要功能和适合的使用方式。
+
+目前暂时不发布 GitHub Packages。原因很简单：这个项目需要本地 `.env`、Garmin 配置、小米配置和邮件授权，更适合先按部署教程自托管。等 Docker 部署流程稳定后，再考虑发布 GHCR 镜像包。
 
 ## 仓库默认忽略的运行文件
 
