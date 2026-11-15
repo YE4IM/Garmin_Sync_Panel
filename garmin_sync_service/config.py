@@ -69,6 +69,7 @@ class Settings:
 
     request_timeout_seconds: int
     command_timeout_seconds: int
+    auto_sync_steps: tuple[str, ...]
     mimo_api_key: str
     mimo_api_url: str
     mimo_model: str
@@ -128,6 +129,11 @@ class Settings:
             ),
             request_timeout_seconds=_int(os.environ.get("REQUEST_TIMEOUT_SECONDS"), 20),
             command_timeout_seconds=_int(os.environ.get("COMMAND_TIMEOUT_SECONDS"), 1800),
+            auto_sync_steps=(
+                lambda parts: tuple(parts) if parts else (
+                    "activity_init", "activity_sync", "health_sync", "activity_export", "weight_sync"
+                )
+            )([p.strip() for p in os.environ.get("AUTO_SYNC_STEPS", "").split(",") if p.strip()]),
             mimo_api_key=os.environ.get("MIMO_API_KEY", ""),
             mimo_api_url=os.environ.get(
                 "MIMO_API_URL",

@@ -128,8 +128,13 @@ def create_weight_fit_file(
             if w.get('BoneMass') and not _is_nan(w['BoneMass']):
                 mesg.bone_mass = float(w['BoneMass'])
 
-            if w.get('MetabolicAge') and not _is_nan(w['MetabolicAge']):
-                mesg.metabolic_age = int(w['MetabolicAge'])
+            # 2026-11-15: Skip MetabolicAge. Garmin Connect stores this metric
+            # internally in milliseconds and its UI renders the raw ms value
+            # as "years" for 3rd-party scale FIT uploads (e.g. 24y shows as
+            # 757366224000年). Omit the field so Garmin hides the metric
+            # instead of displaying garbage.
+            # if w.get('MetabolicAge') and not _is_nan(w['MetabolicAge']):
+            #     mesg.metabolic_age = int(w['MetabolicAge'])
 
             if w.get('MuscleMass') and not _is_nan(w['MuscleMass']):
                 mesg.muscle_mass = float(w['MuscleMass'])

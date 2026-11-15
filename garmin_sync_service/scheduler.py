@@ -49,7 +49,7 @@ class DailyScheduler:
                 today = date.today().isoformat()
                 state = self._state()
                 if now.strftime("%H:%M") >= self.settings.daily_run_time and state.get("lastRunDate") != today:
-                    sync_result = self.runner.run_all()
+                    sync_result = self.runner.run_all(steps=set(self.settings.auto_sync_steps))
                     ai = None
                     if sync_result.get("ok") and self.settings.ai_auto_analyze_after_sync:
                         payload = dashboard_payload(self.settings, include_long_range=True)

@@ -139,7 +139,7 @@ class SyncRunner:
             stderr_tail=(proc.stderr or "")[-8000:],
         )
 
-    def run_all(self) -> dict:
+    def run_all(self, steps: set[str] | None = None) -> dict:
         if not self._lock.acquire(blocking=False):
             return {"ok": False, "error": "sync already running", "startedAt": self._now(), "status": self.status()}
         run_started = self._now()
@@ -197,6 +197,8 @@ class SyncRunner:
                     self.settings.weight_project_dir,
                 ),
             ]
+            if steps is not None:
+                commands = [item for item in commands if item[0] in steps]
             results: list[CommandResult] = []
             total = len(commands)
             self._set_status(
