@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.1.1 - 2026-11-16
+
+### 新增
+
+- `AUTO_SYNC_STEPS` 环境变量：逗号分隔配置每日定时同步执行的步骤（`activity_init`、`activity_sync`、`health_sync`、`activity_export`、`weight_sync`），留空时执行全部步骤，行为与 v0.1.0 一致。
+
+### 修复
+
+- 小米体脂秤 FIT 文件不再写入 MetabolicAge 字段。Garmin 内部以毫秒存储该指标，第三方 FIT 上传后 UI 会把毫秒值按"年"渲染（如 24 岁显示为 `757366224000年`）；现在 Garmin 会直接隐藏该指标。
+
+### 其他
+
+- README 提供中英双语版本（`README.md` / `README.en.md`）。
+
 ## v0.1.0 - 2026-06-28
 
 首个公开版本。

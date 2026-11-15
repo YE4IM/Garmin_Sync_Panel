@@ -1,6 +1,13 @@
 # Garmin Sync Panel
 
+简体中文 | [English](README.en.md)
+
 一个自托管的 Garmin 同步面板，用来把运动、健康、体重和日报整理到一个地方。
+
+## 最近更新（v0.1.1）
+
+- **同步步骤可配置**：新增环境变量 `AUTO_SYNC_STEPS`，逗号分隔选择每日定时同步要执行的步骤；不配置时与原行为一致，执行全部 5 个步骤。
+- **修复代谢年龄显示异常**：小米体脂秤生成的 FIT 文件不再写入 MetabolicAge 字段。此前 Garmin 会把内部毫秒值按"年"渲染（例如 24 岁显示为 `757366224000年`），现在 Garmin 会直接隐藏该指标。
 
 这个项目最早是为了解决一个很具体的问题：Garmin Connect 里有运动和健康数据，小米体重秤的数据在 Mi Fitness 里，日常复盘又希望有一份邮件报告可以直接阅读。几个数据源分开看很麻烦，所以这里把 Garmin 运动同步、小米体重同步、Web 面板和日报邮件放到同一个服务里。
 
@@ -69,7 +76,7 @@ git grep -n "passToken\|oauth1_token\|oauth2_token\|ACCOUNT_CLIENT_SECRET\|SMTP_
 ## 安装
 
 ```bash
-git clone https://github.com/wanghy0813-beep/Garmin_Sync_Panel.git
+git clone https://github.com/YE4IM/Garmin_Sync_Panel.git
 cd Garmin_Sync_Panel
 
 python3 -m venv .venv
@@ -149,6 +156,18 @@ GARMIN_SYNC_PYTHON=/opt/garmin-sync/.venv/bin/python
 ```
 
 放在别的目录时，把这几项改掉。
+
+## 配置同步步骤（可选）
+
+每日定时同步默认依次执行 5 个步骤：`activity_init`、`activity_sync`、`health_sync`、`activity_export`、`weight_sync`。
+
+如果只想执行其中一部分，设置 `AUTO_SYNC_STEPS`（逗号分隔）：
+
+```env
+AUTO_SYNC_STEPS=activity_sync,weight_sync
+```
+
+留空或不配置时执行全部步骤。Web 面板手动触发的同步不受影响，始终执行全部步骤。
 
 ## 配置 Garmin 运动同步
 
