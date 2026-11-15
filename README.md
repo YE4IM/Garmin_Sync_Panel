@@ -399,6 +399,11 @@ sudo systemctl enable --now garmin-sync-daily.timer
 
 当前仓库包含导入的子项目。一般先跑 `tests` 就够了，不必直接跑整个仓库的全量 pytest。
 
+## 致谢
+
+- 本项目 fork 自 [wanghy0813-beep/Garmin_Sync_Panel](https://github.com/wanghy0813-beep/Garmin_Sync_Panel)，感谢原作者开源并整理这份自托管同步面板。
+- 同时感谢导入子项目 `garmin-activity-sync` 和 `garmin-weight-sync` 的作者，相关授权说明见 `NOTICE.md`。
+
 ## 许可证
 
 本仓库使用 MIT License，内容见 `LICENSE`。

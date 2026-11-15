@@ -397,6 +397,11 @@ Pick either `ENABLE_SCHEDULER=true` or the systemd timer — not both — to avo
 
 The repository includes vendored subprojects. Running `tests` is generally enough; there is no need to run the full-repo pytest.
 
+## Acknowledgments
+
+- This project is a fork of [wanghy0813-beep/Garmin_Sync_Panel](https://github.com/wanghy0813-beep/Garmin_Sync_Panel) — thanks to the original author for open-sourcing and putting together this self-hosted sync panel.
+- Thanks also to the authors of the vendored subprojects `garmin-activity-sync` and `garmin-weight-sync`; see `NOTICE.md` for licensing details.
+
 ## License
 
 This repository is released under the MIT License; see `LICENSE`.
