@@ -4,10 +4,18 @@ English | [简体中文](README.md)
 
 A self-hosted Garmin sync panel that brings activities, health metrics, weight data, and daily reports together in one place.
 
-## Recent Changes (v0.1.1)
+## Differences from Upstream
 
-- **Configurable sync steps**: new `AUTO_SYNC_STEPS` environment variable, a comma-separated list selecting which steps the daily scheduled sync runs. Unset, it behaves exactly as before and runs all 5 steps.
-- **Fixed Metabolic Age rendering**: FIT files generated from Xiaomi scale data no longer write the MetabolicAge field. Garmin previously rendered its internal millisecond value as "years" (e.g. 24y showed up as `757366224000年`); now Garmin simply hides the metric.
+This project is a fork of [wanghy0813-beep/Garmin_Sync_Panel](https://github.com/wanghy0813-beep/Garmin_Sync_Panel) (upstream last updated 2026-07-11) with the following changes:
+
+| Capability | Upstream | This fork |
+|---|---|---|
+| Daily scheduled sync steps | Always runs all 5 steps | New `AUTO_SYNC_STEPS` env var selects a comma-separated subset; unset behaves identically to upstream |
+| Xiaomi scale metabolic age | FIT files write MetabolicAge, which Garmin renders as years from its internal ms value (24y shows up as `757366224000年`) | Field is skipped, so Garmin hides the metric |
+| Documentation | Chinese only | Bilingual (`README.md` / `README.en.md`) |
+| Maintenance | No updates since 2026-07-11 | Actively maintained; see [CHANGELOG.md](CHANGELOG.md) |
+
+Cloning and deployment work the same as upstream; the rest of this document applies to both.
 
 This project started from a very concrete problem: activity and health data live in Garmin Connect, Xiaomi scale data lives in Mi Fitness, and daily reviews are easiest to read in an email report. Keeping those sources separate is cumbersome, so this service puts Garmin activity sync, Xiaomi weight sync, a web panel, and daily report emails into one place.
 
